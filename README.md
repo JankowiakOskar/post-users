@@ -2,8 +2,8 @@
 
 ## Table of contents
 
-- [Description](#description)
-- [Technologies](#technologies)
+- [Description](#Description)
+- [Technologies](#Technologies)
 - [Setup](#Setup)
 
 ## Description 🎯

@@ -34,7 +34,7 @@ describe('Test users utils functions', () => {
     );
   });
 
-  test('Count users posts propertly after merging with posts', () => {
+  test('Count users posts properly after merging with posts', () => {
     const mergedArr = mergeUsersWithPosts(users, posts);
     const results = countUsersPosts(mergedArr);
 

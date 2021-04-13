@@ -35,7 +35,7 @@ export const getHaversineDistance = (firstLocation, secondLocation) => {
   return distance;
 };
 
-export const matchUsersByClosestGeo = (users) => {
+export const matchUsersByClosestGeo = (users, geoDistanceCB) => {
   const matchedUsers = users.reduce((acc, user) => {
     let lowestDistance = 0;
     let closestUser = {};
@@ -46,14 +46,18 @@ export const matchUsersByClosestGeo = (users) => {
 
     users.forEach((member) => {
       if (username === member.username) return;
-      const currDistance = getHaversineDistance(geo, member.address.geo);
+      const currDistance = geoDistanceCB(geo, member.address.geo);
       if (lowestDistance === 0 || lowestDistance > currDistance) {
         lowestDistance = currDistance;
         closestUser = { ...member };
       }
     });
 
-    acc.push(`${username} mieszka najbliżej ${closestUser.username}`);
+    acc.push(
+      `${username} mieszka najbliżej ${
+        closestUser.username
+      } dzieli ich dystans ${lowestDistance.toFixed(0)} km`,
+    );
 
     return acc;
   }, []);

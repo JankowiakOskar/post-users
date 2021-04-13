@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const endpointUsers = 'https://jsonplaceholder.typicode.com/users';
+import { getAllUsers } from './usersAPI';
 
 export const initialState = {
   users: [],
@@ -13,8 +11,8 @@ export const initialState = {
 
 export const getUsers = createAsyncThunk('users/getUsers', async () => {
   try {
-    const { data } = await axios.get(endpointUsers);
-    return data;
+    const response = await getAllUsers();
+    return response;
   } catch (err) {
     throw Error(`Something went wrong, and we couldn't load users`);
   }
@@ -31,6 +29,7 @@ const usersSlice = createSlice({
     builder.addCase(getUsers.fulfilled, (state, action) => {
       const isError = Object.values(state.error).length;
       state.isLoading = !state.isLoading;
+
       state.users = [...action.payload];
       state.error = isError && { message: '' };
     });

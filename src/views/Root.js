@@ -7,6 +7,7 @@ import {
   mergeUsersWithPosts,
   matchUsersByClosestGeo,
   countUsersPosts,
+  getHaversineDistance,
 } from '../utils/userUtils';
 import TitledList from '../components/TitledList/TitledList';
 import LoadingProvider from '../Providers/LoadingProvider';
@@ -38,8 +39,8 @@ const Root = () => {
         )}
         {anyUserExist && (
           <TitledList
-            title="Matched users by shortes geo"
-            list={matchUsersByClosestGeo(users)}
+            title="Matched users by closest geo distance"
+            list={matchUsersByClosestGeo(users, getHaversineDistance)}
           />
         )}
       </LoadingProvider>

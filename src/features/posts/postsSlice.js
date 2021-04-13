@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const endpointPosts = 'https://jsonplaceholder.typicode.com/posts';
+import { getAllPosts } from './postsAPI';
 
 export const initialState = {
   posts: [],
@@ -13,8 +11,8 @@ export const initialState = {
 
 export const getPosts = createAsyncThunk('posts/getPosts', async () => {
   try {
-    const { data } = await axios.get(endpointPosts);
-    return data;
+    const response = await getAllPosts();
+    return response;
   } catch (err) {
     throw Error(`Something went wrong, and we couldn't load posts`);
   }

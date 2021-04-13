@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 
 const LoadingProvider = ({ isLoading, children }) => {
-  return isLoading ? <p>Trwa ładowanie danych...</p> : children;
+  return isLoading ? (
+    <p data-testid="loader-message">Trwa ładowanie danych...</p>
+  ) : (
+    children
+  );
 };
 
 LoadingProvider.propTypes = {

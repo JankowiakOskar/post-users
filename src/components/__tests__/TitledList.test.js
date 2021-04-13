@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import TitledList from '../TitledList/TitledList';
 
 describe('titled list', () => {
-  test('renders a list of data and title passing via props propertly', () => {
+  test('renders a list of data and title passing via props properly', () => {
     const listComments = ['first comment', 'second comment'];
     const titleData = 'Comments';
     const rtl = render(<TitledList title={titleData} list={listComments} />);
