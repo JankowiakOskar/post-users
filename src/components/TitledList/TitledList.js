@@ -10,7 +10,7 @@ const TitledList = ({ title, list }) => (
         ))}
       </ul>
     ) : (
-      <p>{`Brak pasujących wyników dla listy ${title}`}</p>
+      <p data-testid="message-emptylist">{`Brak pasujących wyników dla listy ${title}`}</p>
     )}
   </div>
 );

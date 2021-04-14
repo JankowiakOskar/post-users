@@ -10,7 +10,7 @@ import {
   getHaversineDistance,
 } from '../utils/userUtils';
 import TitledList from '../components/TitledList/TitledList';
-import LoadingProvider from '../Providers/LoadingProvider';
+import LoadingProvider from '../providers/LoadingProvider';
 
 const Root = () => {
   const { posts, isLoading: isLoadingPosts } = useSelector(selectPosts);
