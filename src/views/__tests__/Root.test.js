@@ -20,7 +20,7 @@ describe('Root tests', () => {
     const loader = screen.getByTestId('loader-message');
     expect(loader).toBeInTheDocument();
   });
-  test('render one message', () => {
+  test('render message', () => {
     const message = screen.getByTestId('message-emptylist');
     expect(message).toBeInTheDocument();
   });
