@@ -25,6 +25,7 @@ Project is created with:
 
 To setup and run this project use commands puted below in root directory:
 
+### `cd post-users`
 ### `npm init`
 
 After running this command you install all required dependencies to run app
